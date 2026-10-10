@@ -1,30 +1,30 @@
 # knowledge-remotion
 
-Knowledge explainer videos drawn by program: a selected document becomes a portrait short whose every scene is code.
-Read .claude/skills/explainer-director/SKILL.md before making or changing an episode; it is the working method and
-it came out of the owner's corrections, so follow it rather than improvising.
+用程序绘制的知识科普视频：把一篇选定的文档做成竖屏短片，每个场景都是代码。
+制作或修改任何一期之前，先读 .claude/skills/explainer-director/SKILL.md。那是工作方法，
+是负责人一条条纠正出来的，照着做，不要临场发挥。
 
-## Layout
+## 目录
 
-- engine/: what every episode shares. kit.ts (pure helpers), Explainer.tsx (captions, glossary line, trail, the pacing
-  that makes each sentence's stretch of a scene last as long as its recording, the Remotion root).
-- episodes/NAME/: one episode. episode.tsx exports `episode`; drawing code particular to it sits beside it.
-  voice/ and narration.json are generated and ignored by git.
-- tools/: narration.mjs, voice.py, render.mjs, mix.py. out/ holds stills and films and is ignored by git.
+- engine/：每期共用的部分。kit.ts 是纯函数工具；Explainer.tsx 负责字幕、术语行、进度线索、
+  让每句话对应的画面窗口与录音等长的节奏逻辑，以及 Remotion 的入口。
+- episodes/期名/：一期。episode.tsx 导出 `episode`，这一期专用的画法放在同目录下。
+  voice/ 和 narration.json 是生成物，不进 git。
+- tools/：narration.mjs、voice.py、render.mjs、mix.py。out/ 存放静帧和成片，不进 git。
 
-## Rules
+## 规则
 
-- Say what the episode will teach, how it will be told and what it will look like, and wait for the owner, before building.
-- The source document's own argument and terms are the script. Check every fact against a primary source first.
-- Remotion is the only clock. A scene is a function of its own time: no wall time, no Math.random, nothing kept
-  from the frame before.
-- Chinese text, captions and titles are DOM; geometry is Canvas 2D.
-- Keep engine/ small. Drawing code stays with its episode until a second episode has used it unchanged.
-- Recordings, music, films and keys are never committed. Generated folders and films are not written over.
-- Sentences sent to the speech service leave the machine; say so. Use only music the owner names.
-- Report what was looked at and what was not. Stills do not show motion; nobody has heard a recording until a person
-  has, and a model's transcript of a clip is not evidence that it is read correctly.
+- 动手之前，先说清这期要科普什么、怎么讲、画面是什么样，等负责人确认。
+- 以源文档自己的论证和术语为脚本。每一条事实先对照一手来源核对。
+- Remotion 是唯一的时钟。场景只由它自己的时间决定：不用墙上时间，不用 Math.random，
+  不依赖上一帧留下的任何东西。
+- 中文、字幕、标题用 DOM 排版；几何图形用 Canvas 2D。
+- engine/ 保持精简。画法留在它所属的那一期里，直到第二期原样用过它，才提进 engine/。
+- 录音、音乐、成片、密钥一律不提交。已生成的目录和成片不覆盖。
+- 发给语音服务的句子会离开本机，执行时要说明。音乐只用负责人指定的文件。
+- 如实报告看过什么、没看过什么。静帧看不出动态；录音在有人听过之前就是没人听过，
+  模型对音频的听写不能证明读音正确。
 
-## Checks
+## 检查
 
-npm run check type-checks engine/ and every episode. There are no automated tests yet.
+npm run check 对 engine/ 和所有期做类型检查。目前没有自动化测试。
