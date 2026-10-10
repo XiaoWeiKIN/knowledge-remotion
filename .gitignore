@@ -1,0 +1,13 @@
+node_modules/
+tools/venv/
+out/
+.work-*/
+episodes/*/voice/
+episodes/*/narration.json
+.env
+.env.*
+.DS_Store
+__pycache__/
+*.mp3
+*.mp4
+*.wav

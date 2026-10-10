@@ -1,0 +1,24 @@
+{
+  "name": "knowledge-remotion",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "tsc --noEmit",
+    "narration": "node tools/narration.mjs",
+    "render": "node tools/render.mjs"
+  },
+  "dependencies": {
+    "@remotion/bundler": "4.0.421",
+    "@remotion/renderer": "4.0.421",
+    "esbuild": "^0.25.0",
+    "ffmpeg-static": "^5.2.0",
+    "ffprobe-static": "^3.1.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.421"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.18",
+    "typescript": "^5.7.3"
+  }
+}
